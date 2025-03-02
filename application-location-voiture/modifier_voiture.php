@@ -2,7 +2,7 @@
 
 include('liaison.php');
 $id= $_GET['id'];
-$sql='SELECT* FROM voitures WHERE id='.$id.' ';
+$sql='SELECT * FROM voitures WHERE id='.$id.' ';
 $temp=$pdo->query($sql);
 $resultats3=$temp->fetch();
 

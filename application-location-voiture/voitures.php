@@ -65,7 +65,7 @@
                             
                             $temp=$pdo->query($sql);
                             while($resultats=$temp->fetch()){
-                                echo "<tr><td>".$resultats['marque']."</td><td>".$resultats['modèle']."</td><td>".$resultats['immatriculation']."</td><td>".$resultats['type']."</td><td>".$resultats['état']."</td><td>".$resultats['prix-journalier']."</td><td>".$resultats['en-location']."</td><td><a href='voitures.php?type=supprimer&id=".$resultats['id']."'>supprimer</a></td><td><a href='modifier_voitures.php'>modifier</a></td></tr>";
+                                echo "<tr><td>".$resultats['marque']."</td><td>".$resultats['modèle']."</td><td>".$resultats['immatriculation']."</td><td>".$resultats['type']."</td><td>".$resultats['état']."</td><td>".$resultats['prix-journalier']."</td><td>".$resultats['en-location']."</td><td><a href='voitures.php?type=supprimer&id=".$resultats['id']."'>supprimer</a></td><td><a href='modifier_voitures.php?id=".$resultats["id"]."'>modifier</a></td></tr>";
                             }
                         }
                     }
@@ -74,7 +74,7 @@
                             
                         $temp=$pdo->query($sql);
                         while($resultats=$temp->fetch()){
-                            echo "<tr><td>".$resultats['marque']."</td><td>".$resultats['modèle']."</td><td>".$resultats['immatriculation']."</td><td>".$resultats['type']."</td><td>".$resultats['état']."</td><td>".$resultats['prix-journalier']."</td><td>".$resultats['en-location']."</td><td><a href='voitures.php?type=supprimer&id=".$resultats['id']."'>supprimer</a></td><td><a href='modifier_voiture.php'>modifier</a></td></tr>";
+                            echo "<tr><td>".$resultats['marque']."</td><td>".$resultats['modèle']."</td><td>".$resultats['immatriculation']."</td><td>".$resultats['type']."</td><td>".$resultats['état']."</td><td>".$resultats['prix-journalier']."</td><td>".$resultats['en-location']."</td><td><a href='voitures.php?type=supprimer&id=".$resultats['id']."'>supprimer</a></td><td><a href='modifier_voiture.php?id=".$resultats["id"]."'>modifier</a></td></tr>";
                         }
                     }
                 if(isset($_GET['type'])){
@@ -86,7 +86,7 @@
                             
                         $temp=$pdo->query($sql);
                         while($resultats=$temp->fetch()){
-                            echo "<tr><td>".$resultats['marque']."</td><td>".$resultats['modèle']."</td><td>".$resultats['immatriculation']."</td><td>".$resultats['type']."</td><td>".$resultats['état']."</td><td>".$resultats['prix-journalier']."</td><td>".$resultats['en-location']."</td><td><a href='voitures.php?type=supprimer&id=".$resultats['id']."'>supprimer</a></td><td><a href='modifier_voiture.php'>modifier</a></td></tr>";
+                            echo "<tr><td>".$resultats['marque']."</td><td>".$resultats['modèle']."</td><td>".$resultats['immatriculation']."</td><td>".$resultats['type']."</td><td>".$resultats['état']."</td><td>".$resultats['prix-journalier']."</td><td>".$resultats['en-location']."</td><td><a href='voitures.php?type=supprimer&id=".$resultats['id']."'>supprimer</a></td><td><a href='modifier_voiture.php?id=".$resultats["id"]."   '>modifier</a></td></tr>";
                             }
                         }
                     }
