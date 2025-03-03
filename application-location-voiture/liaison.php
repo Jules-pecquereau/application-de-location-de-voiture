@@ -41,16 +41,13 @@ class Voiture {
         $this->location = $location;
     }
 
-    public function afficherInfos() {
-        echo "  | Marque: $this->marque | Modèle: $this->modele | Immatriculation: $this->immatriculation | Type: $this->type | État: $this->etat | Prix: $this->prix € | En location: " . ($this->location ? "Oui" : "Non") . "<br>";
-    }
-
+    
     public static function getAllVoitures() {
         global $pdo; 
         $sql = "SELECT * FROM voitures";
         $stmt = $pdo->query($sql);
         $voitures = [];
-
+        
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             $voitures[] = new Voiture(
                 $row['id'],
@@ -63,8 +60,12 @@ class Voiture {
                 $row['en_location']
             );
         }
-
+        
         return $voitures;
+    } 
+    public function afficherInfos() {
+        
+        echo "<tr><td>".$this->marque."</td><td>".$this->modele."</td><td>".$this->immatriculation."</td><td>".$this->type."</td><td>".$this->etat."</td><td>".$this->prix."</td><td>". ($this->location ? "Oui" : "Non") ."</td><td><a href='voir_voiture.php?type=supprimer&id=".$this->id."'>supprimer</a></td><td><a href='voir_voiture.php?id=".$this->id."'>modifier</a></td></tr>";
     }
 }
 
