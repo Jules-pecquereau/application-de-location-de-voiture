@@ -24,7 +24,7 @@ session_start()
             <th>déjà louer ou non</th>
         </tr>
         <?php
-require "liaison.php"; 
+require "voiture_creation.php"; 
 
 
 $voitures = Voiture::getAllVoitures();
