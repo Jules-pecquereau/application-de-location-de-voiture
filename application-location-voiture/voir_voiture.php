@@ -51,9 +51,9 @@ $voitures = $voitureManager->getAllVoitures();
                 <td>{$voiture->getModele()}</td>
                 <td>{$voiture->getImmatriculation()}</td>
                 <td>{$voiture->getType()}</td>
-                <td>" . ($voiture->getEtat() ? "1" : "0") . "</td>
+                <td>" . ($voiture->getEtat()) . "</td>
                 <td>{$voiture->getPrix()}</td>
-                <td>" . ($voiture->getLocation() ? "1" : "0") . "</td>";
+                <td>" . ($voiture->getLocation()) . "</td>";
                 
             
             if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1) {
