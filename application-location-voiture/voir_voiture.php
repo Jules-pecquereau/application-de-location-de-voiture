@@ -26,36 +26,7 @@ $voitures = $voitureManager->getAllVoitures();
     
     <?php if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1) : ?>
         <h2>Ajouter une voiture</h2>
-        <form action="ajouter_voiture.php" method="post">
-            <label>Marque :</label>
-            <input type="text" name="marque" required><br>
-            
-            <label>Modèle :</label>
-            <input type="text" name="modele" required><br>
-            
-            <label>Immatriculation :</label>
-            <input type="text" name="immatriculation" required><br>
-            
-            <label>Type :</label>
-            <input type="text" name="type" required><br>
-            
-            <label>État du véhicule :</label>
-            <select name="etat">
-                <option value="0">Mauvais</option>
-                <option value="1">Bon</option>
-            </select><br>
-            
-            <label>Prix à la journée :</label>
-            <input type="number" name="prix" step="0.01" required><br>
-            
-            <label>Déjà loué :</label>
-            <select name="location">
-                <option value="0">Non</option>
-                <option value="1">Oui</option>
-            </select><br>
-            
-            <button type="submit">Ajouter</button>
-        </form>
+        <a href="ajouter_voiture.php">ajouter une voiture</a>
     <?php endif; ?>
 
     <h2>Liste des voitures</h2>
@@ -80,16 +51,16 @@ $voitures = $voitureManager->getAllVoitures();
                 <td>{$voiture->getModele()}</td>
                 <td>{$voiture->getImmatriculation()}</td>
                 <td>{$voiture->getType()}</td>
-                <td>" . ($voiture->getEtat() ? "Bon état" : "Mauvais état") . "</td>
+                <td>" . ($voiture->getEtat() ? "1" : "0") . "</td>
                 <td>{$voiture->getPrix()}</td>
-                <td>" . ($voiture->getLocation() ? "Oui" : "Non") . "</td>";
+                <td>" . ($voiture->getLocation() ? "1" : "0") . "</td>";
                 
             
             if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1) {
                 echo "<td>
                         <a href='voir_voiture.php?type=supprimer&id={$voiture->getId()}' onclick='return confirm(`Voulez-vous vraiment supprimer cette voiture ?`);'>Supprimer</a> |
                         <a href='modifier_voiture.php?id={$voiture->getId()}'>Modifier</a>
-                      </td>";
+                    </td>";
             }
 
             echo "</tr>";

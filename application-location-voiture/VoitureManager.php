@@ -47,7 +47,7 @@ class VoitureManager {
             'type' => $voiture->getType(),
             'etat' => $voiture->getEtat(),
             'prix' => $voiture->getPrix(),
-            'location' => $voiture->getLocation()
+            'location' => $voiture->getLocation(),
         ]);
     }
 

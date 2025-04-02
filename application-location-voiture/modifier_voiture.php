@@ -26,13 +26,13 @@ if (!$voitureToEdit) {
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $marque = htmlspecialchars($_POST['marque']);
-    $modele = htmlspecialchars($_POST['modele']);
-    $immatriculation = htmlspecialchars($_POST['immatriculation']);
-    $type = htmlspecialchars($_POST['type']);
-    $etat = htmlspecialchars($_POST['etat']);
-    $prix = htmlspecialchars($_POST['prix']);
-    $location = isset($_POST['location']) ? 1 : 0; 
+    $marque = $_POST['marque'];
+    $modele = $_POST['modele'];
+    $immatriculation = $_POST['immatriculation'];
+    $type = $_POST['type'];
+    $etat = $_POST['etat'];
+    $prix = $_POST['prix'];
+    $location = isset($_POST['location']); 
 
     
     $voitureToEdit->setMarque($marque);
@@ -79,8 +79,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <label for="etat">État:</label>
     <select name="etat">
-            <option value="0">bon</option>
-            <option value="1">mauvais</option>
+            <option value="0">0</option>
+            <option value="1">1</option>
         </select><br>
 
     <label for="prix">Prix à la journée:</label>
