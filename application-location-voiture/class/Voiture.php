@@ -9,8 +9,11 @@ class Voiture {
     private $etat;
     private $prix;
     private $location;
+    private $datePrise;
+    private $dateRendu;
 
-    public function __construct($id, $marque, $modele, $immatriculation, $type, $etat, $prix, $location) {
+
+    public function __construct($id, $marque, $modele, $immatriculation, $type, $etat, $prix, $location, $datePrise, $dateRendu) {
         $this->id = $id;
         $this->marque = $marque;
         $this->modele = $modele;
@@ -19,6 +22,8 @@ class Voiture {
         $this->etat = $etat;
         $this->prix = $prix;
         $this->location = $location;
+        $this->datePrise = $datePrise;
+        $this->dateRendu = $dateRendu;
     }
 
 
@@ -30,6 +35,8 @@ class Voiture {
     public function getEtat() { return $this->etat; }
     public function getPrix() { return $this->prix; }
     public function getLocation() { return $this->location; }
+    public function getDatePrise() {return $this->datePrise;}
+    public function getDateRendu() {return $this->dateRendu;}
 
 
     public function setMarque($marque) { $this->marque = $marque; }
@@ -39,4 +46,6 @@ class Voiture {
     public function setEtat($etat) { $this->etat = $etat; }
     public function setPrix($prix) { $this->prix = $prix; }
     public function setLocation($location) { $this->location = $location; }
+    public function setDatePrise($date_prise) { $this->datePrise = $datePrise; }
+    public function setDatePendu($date_rendu) {$this-> dateRendu= $dateRendu; }
 }

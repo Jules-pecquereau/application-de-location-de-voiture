@@ -23,7 +23,30 @@ class VoitureManager {
                 $row['type'],
                 $row['etat'],
                 $row['prix_journalier'],
-                $row['en_location']
+                $row['en_location'],
+                $row['datePrise'],
+                $row['dateRendu']
+            );
+        }
+        return $voitures;
+    }
+    public function FindVoitures() {
+        $cherche = $_GET["cherche"];
+        $sql = "SELECT * FROM voitures WHERE id = '$cherche' OR modele LIKE '%$cherche%' OR marque LIKE '%$cherche%' OR modele LIKE '%$cherche%' OR type LIKE'%$cherche%'";
+        $stmt = $this->pdo->query($sql);
+        $voitures = [];
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $voitures[] = new Voiture(
+                $row['id'],
+                $row['marque'],
+                $row['modele'],
+                $row['immatriculation'],
+                $row['type'],
+                $row['etat'],
+                $row['prix_journalier'],
+                $row['en_location'],
+                $row['datePrise'],
+                $row['dateRendu']
             );
         }
         return $voitures;
@@ -36,6 +59,7 @@ class VoitureManager {
     }
 
     public function updateVoiture(Voiture $voiture) {
+        
         $sql = "UPDATE voitures SET marque = :marque, modele = :modele, immatriculation = :immatriculation, 
                 type = :type, etat = :etat, prix_journalier = :prix, en_location = :location WHERE id = :id";
         $stmt = $this->pdo->prepare($sql);
@@ -50,10 +74,9 @@ class VoitureManager {
             'location' => $voiture->getLocation(),
         ]);
     }
-
     public function addVoiture(Voiture $voiture) {
-        $sql = "INSERT INTO voitures (marque, modele, immatriculation, type, etat, prix_journalier, en_location) 
-                VALUES (:marque, :modele, :immatriculation, :type, :etat, :prix, :location)";
+        $sql = "INSERT INTO voitures (marque, modele, immatriculation, type, etat, prix_journalier, en_location, datePrise, dateRendu) 
+                VALUES (:marque, :modele, :immatriculation, :type, :etat, :prix, :location, :datePrise, :dateRendu)";
         $stmt = $this->pdo->prepare($sql);
         return $stmt->execute([
             'marque' => $voiture->getMarque(),
@@ -62,7 +85,11 @@ class VoitureManager {
             'type' => $voiture->getType(),
             'etat' => $voiture->getEtat(),
             'prix' => $voiture->getPrix(),
-            'location' => $voiture->getLocation()
+            'location' => $voiture->getLocation(),
+            'datePrise'=> $voiture->getDatePrise(),
+            'dateRendu'=> $voiture->getDateRendu(),
+
         ]);
+        
     }
 }
